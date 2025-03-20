@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>机器学习与深度学习在根因分析中的发展进程</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">RCA发展历程</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#early">早期方法</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#graph">图结构应用</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#deep">深度学习</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gnn">图神经网络</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#multimodal">多模态融合</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#llm">LLM时代</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#trends">发展趋势</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 pt-5">
+        <div class="timeline">
+            <div class="timeline-item" id="early">
+                <div class="timeline-content">
+                    <h2>早期机器学习方法的应用(2010-2015)</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">研究动机与背景</h5>
+                            <p class="card-text">早期IT系统面临的问题相对简单，手动分析尚能应对，但随着系统规模扩大和复杂性增加，人工分析变得力不从心。科学家们开始探索如何利用机器学习实现自动化故障诊断。</p>
+                        </div>
+                    </div>
+                    <div class="tech-evolution">
+                        <div class="tech-item">
+                            <h4>Pinpoint (2002)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>Web服务系统故障定位困难，需要自动识别故障组件</p>
+                                <p><strong>技术突破：</strong>首次使用数据挖掘技术将客户请求按成功/失败聚类，建立请求-组件之间的关联</p>
+                                <p><strong>局限性：</strong>计算复杂度高，仅适用于相对简单的系统架构</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <h4>基础分类器应用(2012-2015)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>需要从大量日志中提取有用信息并进行分类</p>
+                                <p><strong>技术方案：</strong></p>
+                                <ul>
+                                    <li>Pariket应用决策树学习检测业务流程中的异常</li>
+                                    <li>DeCaf使用随机森林从日志中挖掘与回归相关的谓词</li>
+                                </ul>
+                                <p><strong>优势：</strong>这些基础机器学习算法能处理结构化数据，提供可解释的结果，且计算成本相对较低</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <h4>规则提取与关联挖掘(2014)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>需要自动化发现故障模式并建立可重用的诊断规则</p>
+                                <p><strong>代表工作：</strong>Lin等人使用关联规则挖掘从故障日志中提取模式</p>
+                                <p><strong>方法优势：</strong>能自动发现人类难以察觉的故障模式关联，提供可解释的规则</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" id="graph">
+                <div class="timeline-content">
+                    <h2>机器学习技术在图结构数据上的应用(2016-2019)</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">研究动机与背景</h5>
+                            <p class="card-text">随着微服务架构的兴起，系统间依赖关系变得高度复杂，单纯依靠分类或规则无法有效捕捉组件间的复杂交互。科学家们意识到需要将系统建模为图结构，并在此基础上应用机器学习。</p>
+                        </div>
+                    </div>
+                    <div class="tech-evolution">
+                        <div class="tech-item">
+                            <h4>随机游走算法应用(2017-2018)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>微服务环境中的故障传播路径复杂，需要在图结构上识别影响路径</p>
+                                <p><strong>代表工作：</strong></p>
+                                <ul>
+                                    <li>MonitorRank(2013)：基于PageRank的随机游走算法定位故障根源</li>
+                                    <li>CloudRanger(2018)：随机游走在因果图上定位根因</li>
+                                </ul>
+                                <p><strong>技术创新：</strong>将Web链接分析算法应用于服务依赖图，能有效处理环路依赖和多重路径</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" id="deep">
+                <div class="timeline-content">
+                    <h2>深度学习方法的兴起(2019-2021)</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">研究动机与背景</h5>
+                            <p class="card-text">随着数据量爆发式增长和深度学习技术的成熟，传统机器学习方法在处理大规模非结构化数据上显现瓶颈。微服务系统产生的海量指标、日志和追踪数据需要更强大的学习能力。</p>
+                        </div>
+                    </div>
+                    <div class="tech-evolution">
+                        <div class="tech-item">
+                            <h4>序列模型的应用(2019)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>追踪和日志本质上是序列数据，需要捕捉时间依赖关系</p>
+                                <p><strong>代表工作：</strong>LSTM-AD(2019)：使用LSTM提取操作序列和延迟时间序列中的时间特征</p>
+                                <p><strong>技术突破：</strong>能有效捕捉长序列中的时间依赖关系，识别微妙的时序异常</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" id="gnn">
+                <div class="timeline-content">
+                    <h2>图神经网络的应用(2021-2023)</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">研究动机与背景</h5>
+                            <p class="card-text">传统深度学习方法虽然强大，但无法直接处理图结构数据。微服务系统本质上是一个复杂交互网络，需要专门设计的神经网络架构来处理这种结构化关系。</p>
+                        </div>
+                    </div>
+                    <div class="tech-evolution">
+                        <div class="tech-item">
+                            <h4>基础GNN在RCA中的应用(2021)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>需要同时学习节点特征和拓扑结构</p>
+                                <p><strong>代表工作：</strong>Sleuth(2023)使用GNN捕获追踪中每个跨度的因果影响</p>
+                                <p><strong>技术价值：</strong>能有效整合节点特征和图结构信息，适合处理复杂依赖关系</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" id="multimodal">
+                <div class="timeline-content">
+                    <h2>多模态深度学习融合(2021-2023)</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">研究动机与背景</h5>
+                            <p class="card-text">单一数据源往往无法提供完整视角，真实故障定位需要整合多源异构数据。科学家们面临的挑战是如何设计能有效处理不同模态数据的统一模型。</p>
+                        </div>
+                    </div>
+                    <div class="tech-evolution">
+                        <div class="tech-item">
+                            <h4>早期多模态融合尝试(2021)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>单一数据源信息不完整，需要整合多源数据</p>
+                                <p><strong>代表工作：</strong>Pdiagnose(2021)结合指标、追踪和日志进行综合分析</p>
+                                <p><strong>技术路线：</strong>采用投票机制整合不同数据源的分析结果</p>
+                                <p><strong>局限性：</strong>简单融合策略难以捕捉不同模态数据间的深层关联</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" id="llm">
+                <div class="timeline-content">
+                    <h2>LLM时代的根因分析(2023-2024)</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">研究动机与背景</h5>
+                            <p class="card-text">传统机器学习和深度学习方法虽然强大，但仍需专门设计特征和模型架构，且无法利用丰富的领域知识。大型语言模型具备强大的文本理解能力和广泛的知识背景，为RCA提供了新思路。</p>
+                        </div>
+                    </div>
+                    <div class="tech-evolution">
+                        <div class="tech-item">
+                            <h4>LLM微调方法(2023)</h4>
+                            <div class="tech-details">
+                                <p><strong>研究动机：</strong>现有RCA方法难以利用自然语言中的丰富信息</p>
+                                <p><strong>代表工作：</strong>Ahmed等人(2023)使用特定领域数据集微调LLM生成潜在根因</p>
+                                <p><strong>技术优势：</strong>能直接处理非结构化文本，无需复杂特征工程</p>
+                                <p><strong>局限性：</strong>微调成本高，可能随时间产生更多幻觉</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" id="trends">
+                <div class="timeline-content">
+                    <h2>发展趋势与研究动机演变</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">研究动机的演变</h5>
+                            <div class="tech-evolution">
+                                <div class="tech-item">
+                                    <h4>从简单分类到复杂推理</h4>
+                                    <div class="tech-details">
+                                        <p>早期研究关注如何从数据中提取特征并进行分类，而后期研究更关注如何建模复杂的因果关系和依赖结构。</p>
+                                    </div>
+                                </div>
+                                <div class="tech-item">
+                                    <h4>从单模态到多模态</h4>
+                                    <div class="tech-details">
+                                        <p>随着系统复杂度增加，科学家认识到单一数据源无法提供完整视角，转向研究如何有效融合多源异构数据。</p>
+                                    </div>
+                                </div>
+                                <div class="tech-item">
+                                    <h4>从特定架构到通用模型</h4>
+                                    <div class="tech-details">
+                                        <p>早期需要为每种数据类型和任务设计专门的模型，而LLM的出现使得能够用统一模型处理多种任务和数据类型。</p>
+                                    </div>
+                                </div>
+                                <div class="tech-item">
+                                    <h4>从静态分析到动态诊断</h4>
+                                    <div class="tech-details">
+                                        <p>研究重点从静态数据分析转向更接近人类专家的主动诊断流程，包括动态决策和信息收集。</p>
+                                    </div>
+                                </div>
+                                <div class="tech-item">
+                                    <h4>从指标准确率到可解释性和可靠性</h4>
+                                    <div class="tech-details">
+                                        <p>除了提高准确率，科学家越来越关注模型的可解释性、可靠性和置信度评估，如PACE和BALANCE的研究所示。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
